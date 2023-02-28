@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,63 +14,44 @@ public class UnitedBasePage {
     }
 
     @FindBy(css = "a[id*='headerNav']")
-    public List<WebElement> headersList;
+    public List<WebElement> navHeaderList;
 
-    @FindBy(css = "ul[class*='bookTravel__']>li")
-    public List<WebElement> travelMenuItems;
+    @FindBy(css = "ul[class*='travelNav']>li")
+    public List<WebElement> travelNavTabs;
 
-    @FindBy(css = "div[class*='__radioContainer'] label")
+    @FindBy(css = "div[class*='radioContainer']>label")
     public List<WebElement> radioButtonsLabel;
 
-    @FindBy(css = "div[class*='__radioContainer'] input")
+    @FindBy(css = "div[class*=radioContainer] input")
     public List<WebElement> radioButtonsInput;
 
-    @FindBy(css = "div[class*='__checkboxWrapper']>label")
-    public List<WebElement> checkboxButtonsLabel;
+    @FindBy(css = "div[class*='checkboxWrapper']>label")
+    public List<WebElement> checkboxLabelList;
 
-    @FindBy(css = "div[class*='__checkboxWrapper']>input")
-    public List<WebElement> checkboxButtonsInput;
+    @FindBy(css = "div[class*='checkboxWrapper'] input")
+    public List<WebElement> checkboxInputList;
 
     @FindBy(id = "bookFlightOriginInput")
-    public WebElement originInputBox;
+    public WebElement travelFromInput;
 
     @FindBy(id = "bookFlightDestinationInput")
-    public WebElement destinationInputBox;
+    public WebElement travelToInput;
 
     @FindBy(id = "DepartDate")
-    public WebElement departureDateInput;
+    public  WebElement travelDepartureDate;
 
-    @FindBy(xpath = "(//div[contains(@class, '2Occ')])[1]/button[2]")
-    private WebElement addAdultButton;
+    @FindBy(css = "div[id='passengerSelector']>button")
+    public WebElement passengerCountButton;
 
-    @FindBy(css = "#passengerSelector>button")
-    public WebElement travelersButton;
+    @FindBy(css = "div[id=passengerSelector] input")
+    public WebElement adultCountInput;
 
-
-    @FindBy(id = "cabinType")
+    @FindBy(css = "button[id=cabinType]")
     public WebElement cabinTypeButton;
 
-    @FindBy(css = "div[class*='2-kSS'] li")
-    private List<WebElement> cabinTypeList;
+    @FindBy(css = "li[id*=cabinType_item]")
+    public List<WebElement> cabinTypeList;
 
-    @FindBy(css = "button[class*='2fg9l']")
+    @FindBy(css = "button[class*=findFlightBtn]")
     public WebElement findFlightsButton;
-
-    public void addAdults(int num) {
-        int i = 1;
-
-        while(i <= num) {
-            addAdultButton.click();
-            i++;
-        }
-    }
-
-    public void selectCabinType(String cabin) {
-        for(WebElement c : cabinTypeList) {
-            if(c.getText().toLowerCase().equals(cabin.toLowerCase())) {
-                c.click();
-                break;
-            }
-        }
-    }
 }

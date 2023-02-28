@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="/Users/techglobal/IdeaProjects/testng_second_project_5/src/test/java/scripts/UnitedBaseTest.java">
+        <classes>
+            <class name="scripts.UnitedBaseTest">
+                <methods>
+                    <include name="validateNavHeaders"/>
+                    <include name="validateTravelMenu"/>
+                    <include name="validateRadioButtons"/>
+                    <include name="validateCheckboxes"/>
+                    <include name="validateOneWaySearchResults"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

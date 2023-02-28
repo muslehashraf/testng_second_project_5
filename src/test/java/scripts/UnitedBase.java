@@ -1,17 +1,21 @@
 package scripts;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import pages.UnitedBasePage;
-import pages.UnitedChooseFlightsPage;
+import pages.UnitedFlightResultsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class UnitedBase {
     public WebDriver driver;
+
     UnitedBasePage unitedBasePage;
-    UnitedChooseFlightsPage unitedChooseFlightsPage;
+    UnitedFlightResultsPage unitedFlightResultsPage;
+
     @BeforeMethod
     public void setup() {
         driver = Driver.getDriver();
@@ -21,7 +25,7 @@ public class UnitedBase {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void teardown() {
         Driver.quitDriver();
     }
 }
